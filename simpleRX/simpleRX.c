@@ -112,7 +112,7 @@ int dw_main(void)
                 dwt_readrxdata(rx_buffer, frame_len, 0);
             }
 
-			sprintf(console_str, "Data Received %s\n", rx_buffer);
+			sprintf(console_str, "Data Received (%02x, %02x)%s\n", rx_buffer[0], rx_buffer[1], &rx_buffer[2]);
 			printk(console_str);
 
             /* Clear good RX frame event in the DW1000 status register. */

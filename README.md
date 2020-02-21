@@ -10,7 +10,18 @@ You will need at least one `DWM1001-dev` board and a `micro-USB` cable.
 ### Software
 There's quite a lot to install if you haven't already. First we're going to build the firmware, after which we can flash it on the board.
 
+#### Environment Variables
+
+```
+<Directory>\zephyr\zephyr-env.cmd # Para inicializar as variáveis 
+set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb 
+set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
+```
+
+
+
 #### Building
+
 Make sure you have `CMake` (min 3.13.1) and `ninja` installed on your PC. If you don't have these tools yet, follow the instructions from zephyr [here](https://docs.zephyrproject.org/latest/getting_started/index.html#set-up-a-development-system).
 Note that you don't really need 'west'.
 
@@ -87,7 +98,20 @@ nrfjprog --family nrf52 --program zephyr/zephyr.hex
 nrfjprog --family nrf52 --reset
 ```
 
+#### Below the sequence of commands to copy and paste
+```
+nrfjprog --family nrf52 --eraseall
+nrfjprog --family nrf52 --program zephyr/zephyr.hex
+nrfjprog --family nrf52 --reset
+```
 ## Examples
+
+**Attention: ** The examples consider that zephyr-dwm1001 is a "brother" directory of ZEPHYR_BASE directory, if your `zephyr-dwm1001` was installed in another directory, you must change `CMakeList.txt` file and change the line above to reflect the correct directory:
+
+```cmake
+set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
+```
+
 The following examples are provided:
  - Example 1 - Simple transmission (`simpleTX-RX` directory)
     - simpleTX
