@@ -30,6 +30,7 @@ Next up is the `toolchain`. Instructions can be found here [here](https://docs.z
 #### Flashing
 In order to flash the boards, you will need `nrfjprog`. This tool is also available on all 3 main OS's. You can find it [here](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF5-Command-Line-Tools). After installing, make sure that your system PATH contains the path to where it is installed.
 Typically for Windows this is:
+
 ```
 C:\Program Files\Nordic Semiconductor\nrf5x\bin
 ```
@@ -113,8 +114,15 @@ set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
 ```
 
 The following examples are provided:
- - Example 1 - Simple transmission (`simpleTX-RX` directory)
-    - simpleTX
-    - simpleRX
-    
+ - Transmission Examples
+
+     - Simple transmission (`simpleTX` directory)
+
+     - Transmission with Sleep (`TXWithSleep` directory)
+
+        It uses the `dwt_spicswakeup` function to wake up the device
+
+- Reception Examples
+    - Simple Reception (`simpleRX` directory)
+
     This example just send data from one board to another

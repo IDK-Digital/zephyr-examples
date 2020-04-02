@@ -11,7 +11,7 @@
  *
  * @author Decawave
  */
-#ifdef EX_02A_DEF
+#ifdef SIMPLE_RX
 #include "deca_device_api.h"
 #include "deca_regs.h"
 #include "deca_spi.h"
@@ -76,7 +76,7 @@ int dw_main(void)
     dwt_configure(&config);
 
     /* Configure DW1000 LEDs */
-    dwt_setleds(1);
+    //dwt_setleds(1);
 
     /* Loop forever receiving frames. */
     while (1)

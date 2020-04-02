@@ -4,10 +4,10 @@ project(zephyr-dwm1001)
 
 set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
 
-add_definitions(-DSIMPLE_RX)
+add_definitions(-DTX_WITH_SLEEP)
 
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}main.c)
-target_sources(app PRIVATE simpleRX.c)
+target_sources(app PRIVATE TXWithSleep.c)
 
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}decadriver/deca_device.c)
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}decadriver/deca_params_init.c)

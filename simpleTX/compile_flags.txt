@@ -1,0 +1,7 @@
+-Ic:\gnuarmemb\arm-none-eabi\include\c++\7.3.1
+-Ic:\gnuarmemb\arm-none-eabi\include\c++\7.3.1\arm-none-eabi
+-Ic:\gnuarmemb\arm-none-eabi\include\c++\7.3.1\backward
+-Ic:\gnuarmemb\lib\gcc\arm-none-eabi\7.3.1\include
+-Ic:\gnuarmemb\lib\gcc\arm-none-eabi\7.3.1\include-fixed
+-Ic:\gnuarmemb\arm-none-eabi\include
+-ID:\GoogleDrive\prgDecawave\zephyr-examples\simpleTX

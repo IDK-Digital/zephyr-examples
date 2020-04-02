@@ -4,7 +4,7 @@ project(zephyr-dwm1001)
 
 set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
 
-add_definitions(-DEX_01A_DEF)
+add_definitions(-DSIMPLE_TX)
 
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}main.c)
 target_sources(app PRIVATE simpleTX.c)
