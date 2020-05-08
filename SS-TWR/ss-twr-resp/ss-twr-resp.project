@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<CodeLite_Project Name="ds-twr-resp" Version="11000" InternalType="Console">
+<CodeLite_Project Name="ss-twr-resp" Version="11000" InternalType="Console">
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="ds-twr-resp.c"/>
+    <File Name="ss-twr-resp.c"/>
   </VirtualDirectory>
   <VirtualDirectory Name="resources">
+    <File Name="prj.conf"/>
     <File Name="CMakeLists.txt"/>
   </VirtualDirectory>
   <Settings Type="Executable">
@@ -24,7 +25,7 @@
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)\cmake-build-$(WorkspaceConfiguration)\output\$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)\cmake-build-$(WorkspaceConfiguration)\output\$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(ProjectName)/build" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <BuildSystem Name="CMake"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
         <![CDATA[set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb 
@@ -38,15 +39,15 @@ set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb]]>
       <PreBuild/>
       <PostBuild/>
       <CustomBuild Enabled="yes">
-        <Target Name="cmake">cmake -GNinja -DBOARD=nrf52_dwm1001 ..</Target>
+        <Target Name="cmake">cmake .. -GNinja -DBOARD=nrf52_dwm1001</Target>
         <RebuildCommand/>
         <CleanCommand>cd $(ProjectPath) &amp;&amp; rm -rf build</CleanCommand>
-        <BuildCommand>cmake -GNinja -DBOARD=nrf52_dwm1001 ..</BuildCommand>
+        <BuildCommand>cmake .. -GNinja -DBOARD=nrf52_dwm1001</BuildCommand>
         <PreprocessFileCommand/>
         <SingleFileCommand/>
         <MakefileGenerationCommand/>
         <ThirdPartyToolName>None</ThirdPartyToolName>
-        <WorkingDirectory>build</WorkingDirectory>
+        <WorkingDirectory>$(ProjectPath)/build</WorkingDirectory>
       </CustomBuild>
       <AdditionalRules>
         <CustomPostBuild/>

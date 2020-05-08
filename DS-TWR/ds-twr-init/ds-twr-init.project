@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <CodeLite_Project Name="ds-twr-init" Version="11000" InternalType="Console">
-  <VirtualDirectory Name="libraries">
-    <File Name="/ricardo/zephyr-dwm1001/decadriver/deca_device.c"/>
-  </VirtualDirectory>
   <Plugins>
     <Plugin Name="qmake">
       <![CDATA[00010001N0005Debug000000000000]]>
     </Plugin>
   </Plugins>
+  <VirtualDirectory Name="libraries">
+    <File Name="/ricardo/zephyr-dwm1001/decadriver/deca_device.c"/>
+  </VirtualDirectory>
   <VirtualDirectory Name="resources">
     <File Name="CMakeLists.txt"/>
   </VirtualDirectory>
@@ -16,6 +16,8 @@
   <VirtualDirectory Name="src">
     <File Name="ds-twr-init.c"/>
   </VirtualDirectory>
+  <Dependencies Name="Debug"/>
+  <Dependencies Name="Release"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -32,10 +34,11 @@
       </Compiler>
       <Linker Options="" Required="yes"/>
       <ResourceCompiler Options="" Required="no"/>
-      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)\cmake-build-$(WorkspaceConfiguration)\output\$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(WorkspacePath)/cmake-build-$(WorkspaceConfiguration)/output" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
+      <General OutputFile="" IntermediateDirectory="" Command="$(WorkspacePath)\cmake-build-$(WorkspaceConfiguration)\output\$(ProjectName)" CommandArguments="" UseSeparateDebugArgs="no" DebugArguments="" WorkingDirectory="$(ProjectPath)/build" PauseExecWhenProcTerminates="yes" IsGUIProgram="no" IsEnabled="yes"/>
       <BuildSystem Name="CMake"/>
       <Environment EnvVarSetName="&lt;Use Defaults&gt;" DbgSetName="&lt;Use Defaults&gt;">
-        <![CDATA[]]>
+        <![CDATA[set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb 
+set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb]]>
       </Environment>
       <Debugger IsRemote="no" RemoteHostName="" RemoteHostPort="" DebuggerPath="" IsExtended="no">
         <DebuggerSearchPaths/>
@@ -43,13 +46,10 @@
         <StartupCommands/>
       </Debugger>
       <PreBuild/>
-      <PostBuild>
-        <Command Enabled="yes">ninja</Command>
-      </PostBuild>
+      <PostBuild/>
       <CustomBuild Enabled="yes">
         <RebuildCommand/>
-        <CleanCommand>cd ..&#xD;
-rm -rf build</CleanCommand>
+        <CleanCommand>cd $(ProjectPath) &amp;&amp; rm -rf build</CleanCommand>
         <BuildCommand>cmake .. -GNinja -DBOARD=nrf52_dwm1001</BuildCommand>
         <PreprocessFileCommand/>
         <SingleFileCommand/>

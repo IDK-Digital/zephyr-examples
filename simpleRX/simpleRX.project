@@ -17,11 +17,6 @@
   <VirtualDirectory Name="resources">
     <File Name="CMakeLists.txt"/>
   </VirtualDirectory>
-  <Dependencies Name="Debug_Linux"/>
-  <Dependencies Name="Debug_Windows"/>
-  <Dependencies Name="Release_Linux"/>
-  <Dependencies Name="Release_Windows"/>
-  <Dependencies Name="Zephyr"/>
   <Settings Type="Executable">
     <GlobalSettings>
       <Compiler Options="" C_Options="" Assembler="">
@@ -240,4 +235,9 @@ ninja&#xD;
       </Completion>
     </Configuration>
   </Settings>
+  <Dependencies Name="Debug_Linux"/>
+  <Dependencies Name="Debug_Windows"/>
+  <Dependencies Name="Release_Linux"/>
+  <Dependencies Name="Release_Windows"/>
+  <Dependencies Name="Zephyr"/>
 </CodeLite_Project>

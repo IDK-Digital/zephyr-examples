@@ -4,10 +4,10 @@ project(zephyr-dwm1001)
 
 set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
 
-add_definitions(-DDS_TWR_RESP)
+add_definitions(-DSS_TWR_RESP)
 
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}main.c)
-target_sources(app PRIVATE ds-twr-resp.c)
+target_sources(app PRIVATE ss-twr-resp.c)
 
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}decadriver/deca_device.c)
 target_sources(app PRIVATE ${ZEPHYR_DWM1001_DIR}decadriver/deca_params_init.c)

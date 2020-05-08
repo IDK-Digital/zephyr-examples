@@ -1,0 +1,10 @@
+-ID:\msys64\mingw64\include\c++\9.3.0
+-ID:\msys64\mingw64\include\c++\9.3.0\x86_64-w64-mingw32
+-ID:\msys64\mingw64\include\c++\9.3.0\backward
+-ID:\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\9.3.0\include
+-ID:\msys64\mingw64\include
+-ID:\msys64\mingw64\lib\gcc\x86_64-w64-mingw32\9.3.0\include-fixed
+-ID:\msys64\mingw64\x86_64-w64-mingw32\include
+-ID:\GoogleDrive\prgDecawave\zephyr-examples\DS-TWR
+-target
+x86_64-pc-windows-gnu
