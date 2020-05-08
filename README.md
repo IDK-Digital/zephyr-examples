@@ -2,37 +2,29 @@
 This project contains examples that show how to use the DWM1001 module together with Zephyr RTOS.
 The examples that Decawave distributes along with their driver are adapted to work on the DWM1001-board.
 
-These examples was made based on Decawave Repo in this [link](https://github.com/RT-LOC/zephyr-dwm1001) 
+These examples was made based on RT-LOC Repo in this [link](https://github.com/RT-LOC/zephyr-dwm1001) 
 
 ### Hardware
 You will need at least one `DWM1001-dev` board and a `micro-USB` cable.
 
 ### Software
-There's quite a lot to install if you haven't already. First we're going to build the firmware, after which we can flash it on the board.
+RT-LOC provide you the steps to install all necessary software:
+
+- Building
+  - CMake
+  - `ninja`
+  - `toolchain`
+- Flashing
+  - `nrfjprog`
 
 #### Environment Variables
 
+Once all necessary software installed, let's setup environment variables:
+
 ```
-<Directory>\zephyr\zephyr-env.cmd # Para inicializar as variáveis 
-set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb 
+<Directory>\zephyr\zephyr-env.cmd # Initialize the environment variables
+set GNUARMEMB_TOOLCHAIN_PATH=c:\gnuarmemb # Path for your toolchain
 set ZEPHYR_TOOLCHAIN_VARIANT=gnuarmemb
-```
-
-
-
-#### Building
-
-Make sure you have `CMake` (min 3.13.1) and `ninja` installed on your PC. If you don't have these tools yet, follow the instructions from zephyr [here](https://docs.zephyrproject.org/latest/getting_started/index.html#set-up-a-development-system).
-Note that you don't really need 'west'.
-
-Next up is the `toolchain`. Instructions can be found here [here](https://docs.zephyrproject.org/latest/getting_started/index.html#set-up-a-toolchain). Best is to install GNU ARM Embedded as described. Pay attention not to install the toolchain into a path with spaces, and don't install version 8-2018-q4-major (both as described in the warnings). After configuring the environment variables you're almost good to go.
-
-#### Flashing
-In order to flash the boards, you will need `nrfjprog`. This tool is also available on all 3 main OS's. You can find it [here](https://www.nordicsemi.com/Software-and-Tools/Development-Tools/nRF5-Command-Line-Tools). After installing, make sure that your system PATH contains the path to where it is installed.
-Typically for Windows this is:
-
-```
-C:\Program Files\Nordic Semiconductor\nrf5x\bin
 ```
 
 ### Zephyr 
@@ -107,22 +99,19 @@ nrfjprog --family nrf52 --reset
 ```
 ## Examples
 
-**Attention: ** The examples consider that zephyr-dwm1001 is a "brother" directory of ZEPHYR_BASE directory, if your `zephyr-dwm1001` was installed in another directory, you must change `CMakeList.txt` file and change the line above to reflect the correct directory:
+**Attention: ** The examples consider that `zephyr-dwm1001` is a "brother" directory of ZEPHYR_BASE directory, if your `zephyr-dwm1001` was installed in another directory, you must change `CMakeList.txt` file and change the line above to reflect the correct directory:
 
 ```cmake
 set(ZEPHYR_DWM1001_DIR ${ZEPHYR_BASE}/../zephyr-dwm1001/)
 ```
 
 The following examples are provided:
- - Transmission Examples
+ - Transmission - Reception Examples
 
      - Simple transmission (`simpleTX` directory)
-
-     - Transmission with Sleep (`TXWithSleep` directory)
-
-        It uses the `dwt_spicswakeup` function to wake up the device
-
-- Reception Examples
-    - Simple Reception (`simpleRX` directory)
-
-    This example just send data from one board to another
+- Transmission with Sleep (`TXWithSleep` directory)
+     - Transmission with Timer Sleep (`TxTimerSleep` directory)
+- Simple Reception (`simpleRX` directory)
+     
+- Single Sided TWR - Two Way Ranging (`SS-TWR` directory)
+- Double Sided TWR - Two Way Ranging (`DS-TWR` directory)
